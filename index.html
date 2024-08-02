@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Courts SARL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="surveyForm" action="/submit" method="post" enctype="multipart/form-data">
+        <!-- Landing page -->
+        <div id="landing-page" class="section">
+            <h1>Golden Courts SARL</h1>
+            <p>To avoid delays, please ensure that the correct key details are provided.</p>
+            <img src="logo.png" alt="Golden Courts SARL Logo" class="logo">
+            <button id="start-button">Start Now</button>
+        </div>
+        <!-- Section 1: Expedition -->
+        <h2>EXPEDITION</h2>
+        <label for="issuingBody">Issuing Body</label>
+        <select id="issuingBody" name="issuingBody" required>
+            <option value="OGEFREM">OGEFREM</option>
+        </select>
+
+        <label for="certificateType">Certificate Type</label>
+        <select id="certificateType" name="certificateType" required>
+            <option value="Continuance">Continuance</option>
+            <option value="Regional">Regional</option>
+        </select>
+
+        <label for="cargoOrigin">Cargo Origin</label>
+        <select id="cargoOrigin" name="cargoOrigin" required>
+            <option value="Uganda">Uganda</option>
+            <option value="Outside Uganda">Outside Uganda</option>
+        </select>
+
+        <label for="shipmentRoute">Shipment Route</label>
+        <select id="shipmentRoute" name="shipmentRoute" required>
+            <option value="In-bound">In-bound</option>
+            <option value="Outbound">Outbound</option>
+        </select>
+
+        <label for="certificateNo">Certificate No.</label>
+        <input type="text" id="certificateNo" name="certificateNo" placeholder="Enter certificate no." required>
+
+        <label for="feriAdCertificate">FERI/AD Certificate copy</label>
+        <input type="file" id="feriAdCertificate" name="feriAdCertificate" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" placeholder="Attach a copy of certificate" required>
+
+        <label for="customsDeclNo">Customs Decl. No.</label>
+        <input type="text" id="customsDeclNo" name="customsDeclNo" placeholder="Enter customs declaration number" required>
+
+        <label for="customsEntryDocument">Customs Entry document copy</label>
+        <input type="file" id="customsEntryDocument" name="customsEntryDocument" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" placeholder="Attach a copy of the entry document" required>
+
+        <!-- Section 2: Import details -->
+        <h2>IMPORT DETAILS</h2>
+        <label for="importerName">Importer name</label>
+        <input type="text" id="importerName" name="importerName" placeholder="Enter importer name" required>
+
+        <label for="importerContact">Importer contact</label>
+        <input type="text" id="importerContact" name="importerContact" placeholder="Enter importer contact" required>
+
+        <!-- Section 3: Export details -->
+        <h2>Export details</h2>
+        <label for="exporterName">Exporter name</label>
+        <input type="text" id="exporterName" name="exporterName" placeholder="Enter exporter name" required>
+
+        <label for="exporterContact">Exporter contact</label>
+        <input type="text" id="exporterContact" name="exporterContact" placeholder="Enter exporter contact" required>
+
+        <label for="clearingAgent">Clearing/forwarding agent</label>
+        <input type="text" id="clearingAgent" name="clearingAgent" placeholder="Enter agent name" required>
+
+        <label for="clearingAgentContact">Clearing/forwarding agent contact</label>
+        <input type="text" id="clearingAgentContact" name="clearingAgentContact" placeholder="Enter agent contact" required>
+
+        <!-- Section 4: Transport & Cargo details -->
+        <h2>TRANSPORT & CARGO DETAILS</h2>
+        <label for="transportMode">Transport mode</label>
+        <select id="transportMode" name="transportMode" required>
+            <option value="Road">Road</option>
+            <option value="Maritime">Maritime</option>
+            <option value="Rail">Rail</option>
+            <option value="Air">Air</option>
+        </select>
+
+        <label for="transporterName">Transporter Name</label>
+        <input type="text" id="transporterName" name="transporterName" placeholder="Enter Transporter name" required>
+
+        <label for="vehicleNumber">Vehicle number</label>
+        <input type="text" id="vehicleNumber" name="vehicleNumber" placeholder="Enter vehicle number" required>
+
+        <label for="vehicleImages">Vehicle images</label>
+        <input type="file" id="vehicleImages" name="vehicleImages" accept=".jpg,.jpeg,.png,.pdf,.mp4" placeholder="Upload image/video of the vehicle" required>
+
+        <label for="dischargeLocation">Discharge location/exit border</label>
+        <input type="text" id="dischargeLocation" name="dischargeLocation" placeholder="Enter discharge location" required>
+
+        <label for="finalDestination">Final destination in DRC</label>
+        <input type="text" id="finalDestination" name="finalDestination" placeholder="Enter final destination" required>
+
+        <!-- Section 5: Valuers -->
+        <h2>VALUERS</h2>
+        <label for="fobCurrency">FOB Currency</label>
+        <select id="fobCurrency" name="fobCurrency" required>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="KES">KES</option>
+            <option value="UGX">UGX</option>
+            <option value="CNY">CNY</option>
+            <option value="AED">AED</option>
+        </select>
+
+        <label for="fobValue">FOB value</label>
+        <input type="text" id="fobValue" name="fobValue" placeholder="Enter FOB value" required>
+
+        <label for="incoterm">Incoterm</label>
+        <select id="incoterm" name="incoterm" required>
+            <option value="CIP">CIP</option>
+            <option value="FOB">FOB</option>
+            <option value="CIF">CIF</option>
+            <option value="CFR">CFR</option>
+        </select>
+
+        <label for="freightCurrency">Freight Currency</label>
+        <select id="freightCurrency" name="freightCurrency" required>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="KES">KES</option>
+            <option value="UGX">UGX</option>
+            <option value="CNY">CNY</option>
+            <option value="AED">AED</option>
+        </select>
+
+        <label for="freightValue">Freight Value</label>
+        <input type="text" id="freightValue" name="freightValue" placeholder="Enter freight value" required>
+
+        <label for="invoiceCopy">Commercial invoice copy</label>
+        <input type="file" id="invoiceCopy" name="invoiceCopy" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" placeholder="Attach a copy of the invoice" required>
+
+        <label for="supportingDocuments">Additional Supporting documents</label>
+        <input type="file" id="supportingDocuments" name="supportingDocuments" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" multiple placeholder="Attach all other relevant supporting documents" required>
+
+        <label for="validationNotes">Validation Notes</label>
+        <textarea id="validationNotes" name="validationNotes" placeholder="Enter validation notes" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
