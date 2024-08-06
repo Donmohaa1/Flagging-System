@@ -1,20 +1,57 @@
-document.getElementById('surveyForm').addEventListener('submit', function(event) {
-    // Example validation before form submission
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    for (const fileInput of fileInputs) {
-        if (fileInput.files.length === 0) {
-            alert('Please upload all required files.');
-            event.preventDefault();
-            return;
-        }
-        for (const file of fileInput.files) {
-            if (file.size > 10485760) { // 10MB
-                alert('File size must be less than 10MB.');
-                event.preventDefault();
-                return;
+document.addEventListener('DOMContentLoaded', function() {
+    const startButton = document.getElementById('start-button');
+    const surveyForm = document.getElementById('survey-form');
+    const sections = document.querySelectorAll('.form-section');
+    let currentSectionIndex = 0;
+
+    startButton.addEventListener('click', function() {
+        resetForm();
+        document.getElementById('landing-page').classList.add('hidden');
+        surveyForm.classList.remove('hidden');
+        sections[currentSectionIndex].classList.add('active');
+    });
+
+    const nextButtons = document.querySelectorAll('.next-button');
+    nextButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (validateSection(currentSectionIndex)) {
+                sections[currentSectionIndex].classList.remove('active');
+                currentSectionIndex++;
+                sections[currentSectionIndex].classList.add('active');
+            }
+        });
+    });
+
+    const backButtons = document.querySelectorAll('.back-button');
+    backButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (button.getAttribute("data-back") === "landing-page") {
+                document.getElementById('landing-page').classList.remove('hidden');
+                surveyForm.classList.add('hidden');
+                resetForm();
+            } else {
+                sections[currentSectionIndex].classList.remove('active');
+                currentSectionIndex--;
+                sections[currentSectionIndex].classList.add('active');
+            }
+        });
+    });
+
+    function validateSection(index) {
+        const inputs = sections[index].querySelectorAll('input, select, textarea');
+        for (let input of inputs) {
+            if (!input.checkValidity()) {
+                input.reportValidity();
+                return false;
             }
         }
+        return true;
     }
 
-    alert('Form submitted successfully!');
+    function resetForm() {
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        currentSectionIndex = 0;
+    }
 });
